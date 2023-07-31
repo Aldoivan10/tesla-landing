@@ -4,7 +4,28 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="Coches eléctricos, energía solar y límpia | Tesla">
 	<main>
-		<header id="#landing-header" class="flex justify-between items-center px-5 py-2 text-white z-10">
+		<header id="#landing-header" class="flex justify-between items-center px-5 py-2 text-black z-10">
+			<div class="absolute top-0 left-0 w-full h-auto -z-10 pt-16 pb-5 flex bg-white p-10">
+				<div class="bg-red-400 basis-8/12 grid grid-cols-4">
+					<div class="bg-green-300 flex flex-col items-ceter justify-center p-5">
+						<img class="h-30 w-64" src="/public/cars/Mega-Menu-Vehicles-Model-S.webp" alt="Model-S">
+						<b class="self-center">Model S</b>
+						<ul class="self-center flex justify-between [&>li]:grow">
+							<li><a href="#">Saber m&aacute;s</a></li>
+							<li><a href="#">Pedir</a></li>
+						</ul>
+					</div>
+				</div>
+				<ul class="text-black flex flex-col gap-2 border-s-2 ms-8 ps-8">
+					<li><a href="#">Cybertruck</a></li>
+					<li><a href="#">Roadster</a></li>
+					<li><a href="#">Inventario</a></li>
+					<li><a href="#">Coche de empresa</a></li>
+					<li><a href="#">Prueba de conducci&oacute;n</a></li>
+					<li><a href="#">Tasaci&aacute;n</a></li>
+				</ul>
+			</div>
+
 			<div class="h-3 w-32 ps-7 flex grow basis-0 align-middle">
 				<svg class="tds-icon tds-icon-logo-wordmark tds-site-logo-icon" 
 					viewBox="0 0 342 35" 
@@ -69,7 +90,7 @@ import Layout from '../layouts/Layout.astro';
 			</div>
 		</section>
 		<script>
-			const listItem = document.querySelectorAll("li")
+			const listItem = document.querySelectorAll("nav li")
 			const menuBackDrop = document.querySelector("#menu-backdrop")
 
 			listItem.forEach((item) => {

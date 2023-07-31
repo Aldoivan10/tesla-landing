@@ -45,4 +45,15 @@ const { title } = Astro.props;
 		font-weight: 700;
 		font-style: normal;
 	}
+
+	div > ul > li > a:after
+	{
+		display: block;
+		border-bottom: 2px solid black;
+		transform: scaleX(0);
+		content: '';
+  		transition: transform 250ms ease-in-out;
+	}
+
+	div > ul > li > a:hover:after { transform: scaleX(1); }
 </style>
