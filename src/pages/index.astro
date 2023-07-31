@@ -6,17 +6,41 @@ import Layout from '../layouts/Layout.astro';
 	<main>
 		<header id="#landing-header" class="flex justify-between items-center px-5 py-2 text-black z-10">
 			<div class="absolute top-0 left-0 w-full h-auto -z-10 pt-16 pb-5 flex bg-white p-10">
-				<div class="bg-red-400 basis-8/12 grid grid-cols-4">
-					<div class="bg-green-300 flex flex-col items-ceter justify-center p-5">
+				<div class="basis-8/12 grid grid-cols-4 [&>div>ul]:font-thin [&>div>ul]:text-sm [&>div>ul]:text-gray-500 [&>div>ul>li>a:after]:border-b-gray-500">
+					<div class="flex flex-col items-ceter justify-center p-5">
 						<img class="h-30 w-64" src="/public/cars/Mega-Menu-Vehicles-Model-S.webp" alt="Model-S">
 						<b class="self-center">Model S</b>
-						<ul class="self-center flex justify-between [&>li]:grow">
+						<ul class="self-center flex gap-6">
+							<li><a href="#">Saber m&aacute;s</a></li>
+							<li><a href="#">Pedir</a></li>
+						</ul>
+					</div>
+					<div class="flex flex-col items-ceter justify-center p-5">
+						<img class="h-30 w-64" src="/public/cars/Mega-Menu-Vehicles-Model-3.webp" alt="Model-3">
+						<b class="self-center">Model 3</b>
+						<ul class="self-center flex gap-6">
+							<li><a href="#">Saber m&aacute;s</a></li>
+							<li><a href="#">Pedir</a></li>
+						</ul>
+					</div>
+					<div class="flex flex-col items-ceter justify-center p-5">
+						<img class="h-30 w-64" src="/public/cars/Mega-Menu-Vehicles-Model-X.webp" alt="Model-X">
+						<b class="self-center">Model X</b>
+						<ul class="self-center flex gap-6">
+							<li><a href="#">Saber m&aacute;s</a></li>
+							<li><a href="#">Pedir</a></li>
+						</ul>
+					</div>
+					<div class="flex flex-col items-ceter justify-center p-5">
+						<img class="h-30 w-64" src="/public/cars/Mega-Menu-Vehicles-Model-Y.webp" alt="Model-Y">
+						<b class="self-center">Model Y</b>
+						<ul class="self-center flex gap-6">
 							<li><a href="#">Saber m&aacute;s</a></li>
 							<li><a href="#">Pedir</a></li>
 						</ul>
 					</div>
 				</div>
-				<ul class="text-black flex flex-col gap-2 border-s-2 ms-8 ps-8">
+				<ul class="flex flex-col justify-around p-2 gap-2 border-s-2 ms-8 ps-8 text-sm font-semibold [&>li>a:after]:border-b-black">
 					<li><a href="#">Cybertruck</a></li>
 					<li><a href="#">Roadster</a></li>
 					<li><a href="#">Inventario</a></li>
@@ -72,7 +96,7 @@ import Layout from '../layouts/Layout.astro';
 			<div
 				id="menu-backdrop"
 				class={`
-				absolute bg-stone-500/25 backdrop-blur rounded
+				absolute bg-stone-500/10 backdrop-blur rounded
 				translate-x-[var(--left)] translate-y-[var(--top)]
 				left-0 top-0
 				w-[var(--width)] h-[var(--height)]
