@@ -1,0 +1,30 @@
+---
+interface Props {
+    text: string;
+}
+
+const { text } = Astro.props
+---
+
+<li><a text={text} class="anchor" href="#">{text}</a></li>
+
+<style is:global>
+    .anchor
+	{
+		position: relative;
+	}
+
+    .anchor:after
+	{
+		position: absolute;
+		border-bottom: 2px solid;
+		transform: scaleX(0);
+		content: attr(text);
+		top: 0;
+		left: 0;
+  		transition: transform 250ms ease-in-out;
+		color: transparent;
+	}
+
+	.anchor:hover:after { transform: scaleX(1); }
+</style>

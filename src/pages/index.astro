@@ -1,55 +1,12 @@
 ---
+import Card from '../components/Card.astro';
+import ListItem from '../components/ListItem.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Coches eléctricos, energía solar y límpia | Tesla">
 	<main>
-		<header id="#header" class="px-5 py-2 text-white bg-white bg-opacity-0 h-12 transition-all duration-500">
-
-			<!-- <div id="top-card" class="absolute -top-full left-0 w-full h-auto -z-10 pt-16 pb-5 flex bg-white p-10 transition-all duration-300">
-				<div class="basis-8/12 grid grid-cols-4 [&>div>ul]:font-thin [&>div>ul]:text-sm [&>div>ul]:text-gray-500 [&>div>ul>li>a:after]:border-b-gray-500">
-					<div class="flex flex-col items-ceter justify-center p-5">
-						<img class="h-30 w-64" src="/public/cars/Mega-Menu-Vehicles-Model-S.webp" alt="Model-S">
-						<b class="self-center">Model S</b>
-						<ul class="self-center flex gap-6">
-							<li><a href="#">Saber m&aacute;s</a></li>
-							<li><a href="#">Pedir</a></li>
-						</ul>
-					</div>
-					<div class="flex flex-col items-ceter justify-center p-5">
-						<img class="h-30 w-64" src="/public/cars/Mega-Menu-Vehicles-Model-3.webp" alt="Model-3">
-						<b class="self-center">Model 3</b>
-						<ul class="self-center flex gap-6">
-							<li><a href="#">Saber m&aacute;s</a></li>
-							<li><a href="#">Pedir</a></li>
-						</ul>
-					</div>
-					<div class="flex flex-col items-ceter justify-center p-5">
-						<img class="h-30 w-64" src="/public/cars/Mega-Menu-Vehicles-Model-X.webp" alt="Model-X">
-						<b class="self-center">Model X</b>
-						<ul class="self-center flex gap-6">
-							<li><a href="#">Saber m&aacute;s</a></li>
-							<li><a href="#">Pedir</a></li>
-						</ul>
-					</div>
-					<div class="flex flex-col items-ceter justify-center p-5">
-						<img class="h-30 w-64" src="/public/cars/Mega-Menu-Vehicles-Model-Y.webp" alt="Model-Y">
-						<b class="self-center">Model Y</b>
-						<ul class="self-center flex gap-6">
-							<li><a href="#">Saber m&aacute;s</a></li>
-							<li><a href="#">Pedir</a></li>
-						</ul>
-					</div>
-				</div>
-				<ul class="flex flex-col justify-around p-2 gap-2 border-s-2 ms-8 ps-8 text-sm font-semibold [&>li>a:after]:border-b-black">
-					<li><a href="#">Cybertruck</a></li>
-					<li><a href="#">Roadster</a></li>
-					<li><a href="#">Inventario</a></li>
-					<li><a href="#">Coche de empresa</a></li>
-					<li><a href="#">Prueba de conducci&oacute;n</a></li>
-					<li><a href="#">Tasaci&aacute;n</a></li>
-				</ul>
-			</div> -->
+		<header id="#header" class="px-5 py-2 z-10 absolute top-0 left-0 w-full text-white bg-white bg-opacity-0 h-12 transition-all duration-500">
 
 			<div class="flex justify-between align-middle [&>nav]:z-10">
 				<div class="grow basis-0 ps-7 flex items-center">
@@ -109,13 +66,49 @@ import Layout from '../layouts/Layout.astro';
 				</div>
 
 			</div>
+			
+			<!-- <div class="w-full mt-5 flex">
+				<div class="grid grid-cols-4 [&>div>ul>li>a]:text-gray-500 [&>div>ul>li>a:after]:border-b-gray-500">
+					<Card title='Model S' img='cars/Model-S.webp' leftAnchor='Saber m&aacute;s' rightAnchor='Pedir'/>
+					<Card title='Model 3' img='cars/Model-3.webp' leftAnchor='Saber m&aacute;s' rightAnchor='Pedir'/>
+					<Card title='Model X' img='cars/Model-X.webp' leftAnchor='Saber m&aacute;s' rightAnchor='Pedir'/>
+					<Card title='Model Y' img='cars/Model-Y.webp' leftAnchor='Saber m&aacute;s' rightAnchor='Pedir'/>
+				</div>
+				<div class="border-s-2"></div>
+				<div>
+					<ul class="flex flex-col h-full justify-around p-2 gap-2 ms-8 ps-8 text-sm font-semibold [&>li>a:after]:border-b-black">
+						<ListItem text="Cybertruck"/>
+						<ListItem text="Roadster"/>
+						<ListItem text="Inventario"/>
+						<ListItem text="Coche de empresa"/>
+						<ListItem text="Prueba de conducci&oacute;n"/>
+						<ListItem text="Tasaci&aacute;n"/>
+					</ul>
+				</div>
+			</div> -->
 
 		</header>
 
-		<section>
+		<section class="h-screen w-screen text-center overflow-hidden relative">
 			<div class="absolute top-0 w-full h-full -z-20 bg-gradient-to-b from-black/40"></div>
 			<div id="background" class="absolute top-0 w-full h-full -z-30">
 				<video class="object-center object-cover h-full w-full" src="/public/Homepage-Demo-Drive-Desktop-NA.webm" autoplay loop></video>
+			</div>
+
+			<div class="h-full flex flex-col">
+				<header>
+					<h2 class={`text-white pt-32 text-[40px] font-medium`}>
+						Disfrute de tesla
+					</h2>
+					<p class={`text-white text-sm`}>
+						Programe una prueba de conducción hoy mismo
+					</p>
+				  </header>
+				<footer class="flex flex-col flex-grow justify-end pb-20">
+					<div>
+						<button class="border-[3px] border-white bg-white/10 backdrop-blur-sm text-sm rounded font-medium text-white px-12 py-2 inline-block hover:bg-white hover:text-black transition-colors duration-300">Prueba de conducción</button>
+					</div>
+				</footer>
 			</div>
 		</section>
 
