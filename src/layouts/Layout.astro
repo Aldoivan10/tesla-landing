@@ -45,4 +45,23 @@ const { title } = Astro.props;
 		font-weight: 700;
 		font-style: normal;
 	}
+
+	.anchor
+	{
+		position: relative;
+	}
+
+    .anchor:after
+	{
+		position: absolute;
+		border-bottom: 2px solid;
+		transform: scaleX(0);
+		content: attr(after-text);
+		top: 0;
+		left: 0;
+  		transition: transform 250ms ease-in-out;
+		color: transparent;
+	}
+
+	.anchor:hover:after { transform: scaleX(1); }
 </style>

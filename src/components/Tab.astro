@@ -1,0 +1,18 @@
+---
+interface Props{
+    tab: string;
+    text: string;
+}
+
+const { tab, text } = Astro.props
+---
+<li><button id-tab={`#${tab}`} class="header-button">{text}</button></li>
+
+<script>
+    const tabs = document.querySelectorAll('button.header-button')
+    tabs.forEach(item => 
+    {
+        let idTab = item.getAttribute('id-tab')
+        
+    })
+</script>
