@@ -6,13 +6,24 @@ interface Props{
 
 const { tab, text } = Astro.props
 ---
-<li><button id-tab={`#${tab}`} class="header-button">{text}</button></li>
+<li><button id-tab={tab} class="header-button">{text}</button></li>
 
 <script>
     const tabs = document.querySelectorAll('button.header-button')
     tabs.forEach(item => 
     {
         let idTab = item.getAttribute('id-tab')
-        
+        console.log(item)
+        item.addEventListener("mouseenter", () => {
+            let content = document.getElementById(idTab)
+            setTimeout(() => {
+                content.classList.remove('hidden')
+            }, 450);
+        })
+
+        item.addEventListener("mouseleave", () => {
+            let content = document.getElementById(idTab)
+            content.classList.add('hidden')
+        })
     })
 </script>
