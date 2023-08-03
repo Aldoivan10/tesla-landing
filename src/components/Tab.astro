@@ -9,21 +9,35 @@ const { tab, text } = Astro.props
 <li><button id-tab={tab} class="header-button">{text}</button></li>
 
 <script>
+    import { hoverButton } from '../state'
+
+    const menuBackDrop = document.querySelector("#menu-backdrop")
     const tabs = document.querySelectorAll('button.header-button')
+    const header = document.querySelector("header")
+
+
     tabs.forEach(item => 
     {
         let idTab = item.getAttribute('id-tab')
-        console.log(item)
+        
         item.addEventListener("mouseenter", () => {
-            let content = document.getElementById(idTab)
-            setTimeout(() => {
-                content.classList.remove('hidden')
-            }, 450);
-        })
 
-        item.addEventListener("mouseleave", () => {
-            let content = document.getElementById(idTab)
-            content.classList.add('hidden')
+            const { left, top, width, height } = item.getBoundingClientRect()
+
+            menuBackDrop.style.setProperty("--left", `${left}px`)
+            menuBackDrop.style.setProperty("--top", `${top}px`)
+            menuBackDrop.style.setProperty("--width", `${width}px`)
+            menuBackDrop.style.setProperty("--height", `${height}px`)
+
+            menuBackDrop.style.opacity = "1"
+            menuBackDrop.style.visibility = "visible"
+            
+            header.classList.remove("h-12")
+            header.classList.remove("bg-opacity-0")
+            header.classList.remove("text-white")
+            header.classList.add("h-auto")
+
+            hoverButton(idTab)
         })
     })
 </script>

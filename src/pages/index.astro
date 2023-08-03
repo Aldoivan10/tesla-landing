@@ -7,7 +7,7 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="Coches eléctricos, energía solar y límpia | Tesla">
 	<main>
-		<header id="#header" class="px-5 py-2 z-10 absolute top-0 left-0 w-full text-white bg-white bg-opacity-0 h-12 transition-all duration-500">
+		<header id="#header" class="px-5 pt-2 z-10 absolute flex flex-col top-0 left-0 w-full transition-all duration-500 text-white bg-white bg-opacity-0 h-12">
 
 			<div class="flex justify-between align-middle [&>nav]:z-10">
 				<div class="grow basis-0 ps-7 flex items-center">
@@ -26,10 +26,10 @@ import Layout from '../layouts/Layout.astro';
 				<nav class="text-sm">
 					<ul class="flex justify-evenly [&>li>button]:px-4 [&>li>button]:py-2 [&>li>button]:font-bold">
 						<Tab text='Veh&iacute;culos' tab='vehicles'/>
-						<Tab text='Energ&iacute;a' tab=''/>
-						<Tab text='Carga' tab=''/>
-						<Tab text='Descubrir' tab=''/>
-						<Tab text='Tienda' tab=''/>
+						<Tab text='Energ&iacute;a' tab='energy'/>
+						<Tab text='Carga' tab='charge'/>
+						<Tab text='Descubrir' tab='discover'/>
+						<Tab text='Tienda' tab='shop'/>
 					</ul>
 				</nav>
 	
@@ -68,16 +68,16 @@ import Layout from '../layouts/Layout.astro';
 
 			</div>
 			
-			<div id="#dialog" class="w-full mt-5 flex">
-				<div id="vehicles" class="w-full mt-5 flex hidden">
-					<div class="grid grid-cols-4 [&>div>ul>li>a]:text-gray-500 [&>div>ul>li>a:after]:border-b-gray-500">
+			<div id="#dialog" class="w-full items-center my-10">
+
+				<div id="vehicles" class="dialog w-full hidden">
+					<div class="basis-3/4 grid grid-cols-4 mx-32 my-5 ps-30 mb-5 [&>div>ul>li>a]:text-gray-500 [&>div>ul>li>a:after]:border-b-gray-500">
 						<Card title='Model S' img='cars/Model-S.webp' leftAnchor='Saber m&aacute;s' rightAnchor='Pedir'/>
 						<Card title='Model 3' img='cars/Model-3.webp' leftAnchor='Saber m&aacute;s' rightAnchor='Pedir'/>
 						<Card title='Model X' img='cars/Model-X.webp' leftAnchor='Saber m&aacute;s' rightAnchor='Pedir'/>
 						<Card title='Model Y' img='cars/Model-Y.webp' leftAnchor='Saber m&aacute;s' rightAnchor='Pedir'/>
 					</div>
-					<div class="border-s-2"></div>
-					<div>
+					<div class="basis-1/4 border-s-2 my-5 me-40">
 						<ul class="flex flex-col h-full justify-around p-2 gap-2 ms-8 ps-8 text-sm font-semibold [&>li>a:after]:border-b-black">
 							<ListItem text="Cybertruck"/>
 							<ListItem text="Roadster"/>
@@ -88,14 +88,28 @@ import Layout from '../layouts/Layout.astro';
 						</ul>
 					</div>
 				</div>
+
+				<div id="energy" class="bg-green-300 h-10 dialog w-full mt-5 hidden">
+					
+				</div>
+
+				<div id="charge" class="bg-red-300 h-10 dialog w-full mt-5 hidden">
+					
+				</div>
+				<div id="discover" class="bg-indigo-400 h-10 dialog w-full mt-5 hidden">
+					
+				</div>
+				<div id="shop" class="bg-slate-500 h-10 dialog w-full mt-5 hidden">
+					
+				</div>
 			</div>
 			
 		</header>
 
 		<section class="h-screen w-screen text-center overflow-hidden relative">
-			<div class="absolute top-0 w-full h-full -z-20 bg-gradient-to-b from-black/40"></div>
+			<div class="absolute top-0 w-full h-full -z-20 bg-gradient-to-b from-black/40  backdrop-blur-sm"></div>
 			<div id="background" class="absolute top-0 w-full h-full -z-30">
-				<video class="object-center object-cover h-full w-full" src="/public/Homepage-Demo-Drive-Desktop-NA.webm" autoplay loop></video>
+				<video class="object-center object-cover h-full w-full" src="/Homepage-Demo-Drive-Desktop-NA.webm" autoplay="true" loop="true"></video>
 			</div>
 
 			<div class="h-full flex flex-col">
@@ -116,10 +130,11 @@ import Layout from '../layouts/Layout.astro';
 		</section>
 
 		<script>
-			const mainListItems = document.querySelectorAll("nav li")
-			const menuBackDrop = document.querySelector("#menu-backdrop")
+			import { hoverButton } from '../state'
+
 			const header = document.querySelector("header")
-			
+			const dialogs = Array.from(document.querySelectorAll(".dialog"))
+			const menuBackDrop = document.querySelector("#menu-backdrop")
 
 			header.addEventListener("mouseleave", (event) => 
 			{
@@ -128,31 +143,17 @@ import Layout from '../layouts/Layout.astro';
 					menuBackDrop.style.opacity = "0"
 					menuBackDrop.style.visibility = "hidden"
 
+					header.classList.remove("h-auto")
 					header.classList.add("bg-opacity-0")
-					header.classList.add("h-12")
 					header.classList.add("text-white")
-					header.classList.remove("h-80")
+					header.classList.add("h-12")
+
+					const dialog = dialogs.find(el => !el.classList.contains("hidden"))
+					if(dialog) dialog.classList.add("hidden")
+
+					hoverButton('')
 				}
 			})
-
-			mainListItems.forEach((item) => {
-				item.addEventListener("mouseenter", () => {
-					const { left, top, width, height } = item.getBoundingClientRect()
-
-					menuBackDrop.style.setProperty("--left", `${left}px`)
-					menuBackDrop.style.setProperty("--top", `${top}px`)
-					menuBackDrop.style.setProperty("--width", `${width}px`)
-					menuBackDrop.style.setProperty("--height", `${height}px`)
-
-					menuBackDrop.style.opacity = "1"
-					menuBackDrop.style.visibility = "visible"
-					
-					header.classList.remove("h-12")
-					header.classList.remove("bg-opacity-0")
-					header.classList.remove("text-white")
-					header.classList.add("h-80")
-				})
-			}) 
 		</script>
 	</main>
 </Layout>
