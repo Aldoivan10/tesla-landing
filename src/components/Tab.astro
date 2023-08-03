@@ -11,7 +11,7 @@ const { tab, text } = Astro.props
 <script>
     import { hoverButton } from '../state'
 
-    const menuBackDrop = document.querySelector("#menu-backdrop")
+    const menuBackDrop = document.querySelector("#menu-backdrop") as HTMLElement
     const tabs = document.querySelectorAll('button.header-button')
     const header = document.querySelector("header")
 
@@ -32,10 +32,9 @@ const { tab, text } = Astro.props
             menuBackDrop.style.opacity = "1"
             menuBackDrop.style.visibility = "visible"
             
-            header.classList.remove("h-12")
             header.classList.remove("bg-opacity-0")
             header.classList.remove("text-white")
-            header.classList.add("h-auto")
+            header.classList.replace("h-12", "h-[23.5rem]")
 
             hoverButton(idTab)
         })

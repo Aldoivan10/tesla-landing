@@ -70,7 +70,7 @@ import Layout from '../layouts/Layout.astro';
 			
 			<div id="#dialog" class="w-full items-center my-10">
 
-				<div id="vehicles" class="dialog w-full hidden">
+				<div id="vehicles" class="dialog w-full flex">
 					<div class="basis-3/4 grid grid-cols-4 mx-32 my-5 ps-30 mb-5 [&>div>ul>li>a]:text-gray-500 [&>div>ul>li>a:after]:border-b-gray-500">
 						<Card title='Model S' img='cars/Model-S.webp' leftAnchor='Saber m&aacute;s' rightAnchor='Pedir'/>
 						<Card title='Model 3' img='cars/Model-3.webp' leftAnchor='Saber m&aacute;s' rightAnchor='Pedir'/>
@@ -143,10 +143,9 @@ import Layout from '../layouts/Layout.astro';
 					menuBackDrop.style.opacity = "0"
 					menuBackDrop.style.visibility = "hidden"
 
-					header.classList.remove("h-auto")
 					header.classList.add("bg-opacity-0")
 					header.classList.add("text-white")
-					header.classList.add("h-12")
+					header.classList.replace("h-[23.5rem]", "h-12")
 
 					const dialog = dialogs.find(el => !el.classList.contains("hidden"))
 					if(dialog) dialog.classList.add("hidden")
