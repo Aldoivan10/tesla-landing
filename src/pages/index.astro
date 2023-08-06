@@ -7,7 +7,7 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="Coches eléctricos, energía solar y límpia | Tesla">
 	<main>
-		<header id="#header" class="px-5 pt-2 z-10 absolute flex flex-col top-0 left-0 w-full transition-all duration-500 text-white bg-white bg-opacity-0 h-12">
+		<header id="#header" class="px-5 pt-2 z-10 absolute flex flex-col top-0 left-0 w-full transition-all duration-300 text-white bg-white bg-opacity-0 h-12">
 
 			<div class="flex justify-between align-middle [&>nav]:z-10">
 				<div class="grow basis-0 ps-7 flex items-center">
@@ -68,16 +68,16 @@ import Layout from '../layouts/Layout.astro';
 
 			</div>
 			
-			<div id="#dialog" class="w-full items-center my-10">
+			<div id="#dialog" class="relative w-full items-center my-10">
 
 				<div id="vehicles" class="dialog w-full opacity-0 transition-opacity duration-300 hidden">
-					<div class="basis-3/4 grid grid-cols-4 mx-32 my-5 ps-30 mb-5 [&>div>ul>li>a]:text-gray-500 [&>div>ul>li>a:after]:border-b-gray-500">
+					<div class="d-content basis-3/4 grid grid-cols-4 mx-32 my-5 ps-30 mb-5 [&>div>ul>li>a]:text-gray-500 [&>div>ul>li>a:after]:border-b-gray-500">
 						<Card title='Model S' img='cars/Model-S.webp' leftAnchor='Saber m&aacute;s' rightAnchor='Pedir'/>
 						<Card title='Model 3' img='cars/Model-3.webp' leftAnchor='Saber m&aacute;s' rightAnchor='Pedir'/>
 						<Card title='Model X' img='cars/Model-X.webp' leftAnchor='Saber m&aacute;s' rightAnchor='Pedir'/>
 						<Card title='Model Y' img='cars/Model-Y.webp' leftAnchor='Saber m&aacute;s' rightAnchor='Pedir'/>
 					</div>
-					<div class="basis-1/4 border-s-2 my-5 me-40">
+					<div class="d-content basis-1/4 border-s-2 my-5 me-40">
 						<ul class="flex flex-col h-full justify-around p-2 gap-2 ms-8 ps-8 text-sm font-semibold [&>li>a:after]:border-b-black">
 							<ListItem text="Cybertruck"/>
 							<ListItem text="Roadster"/>
@@ -107,7 +107,7 @@ import Layout from '../layouts/Layout.astro';
 		</header>
 
 		<section class="h-screen w-screen text-center overflow-hidden relative">
-			<div class="absolute top-0 w-full h-full -z-20 bg-gradient-to-b from-black/40  backdrop-blur-sm"></div>
+			<div class="absolute top-0 w-full h-full -z-20 bg-gradient-to-b from-black/40"></div>
 			<div id="background" class="absolute top-0 w-full h-full -z-30">
 				<video class="object-center object-cover h-full w-full" src="/Homepage-Demo-Drive-Desktop-NA.webm" autoplay="true" loop="true"></video>
 			</div>
